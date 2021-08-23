@@ -22,7 +22,7 @@
 | POST   | /recipe              | { body }        | create a new recipe                           | { success: Boolean, payload: recipe }       |
 | PUT    | /recipe/<recipe_id> | { body }        | updated recipe                                | { success: Boolean, payload: recipe }       |
 | DELETE | /recipe/<recipe_id> |                 | recipe deleted                                | { success: Boolean, payload: recipe }       |
-| PATCH | /recipe/<recipe_id> |                 | recipe patched                                | { success: Boolean, payload: recipe }       |
+| PATCH | /recipe/<recipe_id> |   { body }        | recipe patched                                | { success: Boolean, payload: recipe }       |
 
 
 At least 1 recipie per country already added. 
