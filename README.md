@@ -16,13 +16,14 @@
 
 | Method | Path           | Additional Info                                                        | Result                                 | Response                                  |
 | ------ | -------------- | ---------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------- |
-| GET    | /resource      |                                                                        | all item                               | { success: Boolean, payload: item array } |
-| GET    | /resource/<id> |                                                                        | item with a particular id if it exists | { success: Boolean, payload: item }       |
-| GET    | /resource      | ?query=searchString (query should match a column in the DB, e.g. name) | all data matching query                | { success: Boolean, payload: item array } |
-| POST   | /resource      | { body }                                                               | create a new item                      | { success: Boolean, payload: item }       |
-| PUT    | /resource/<id> | { body }                                                               | updated item                           | { success: Boolean, payload: item }       |
-| PATCH  | /resource/<id> | { body }                                                               | updated item                           | { success: Boolean, payload: item }       |
-| DELETE | /resource/<id> |                                                                        | item deleted                           | { success: Boolean, payload: item }       |
+| GET    | /recipe      |                                                                        | all item                               | { success: Boolean, payload: item array } |
+| GET    | /recipe      | ?query=searchString (query should match a column in the DB, e.g. name) | all data matching query                | { success: Boolean, payload: item array } |
+
+At least 1 recipie per country already added. 
+
+| id (SERIAL PRIMARY KEY) | NAME OF COUNTRY (text) | NAME OF RECIPE (text) | INGREDIENTS (list of text items) | STEPS (text) |
+-------------------------------------------------------------------------------------------------------------------------
+        1                       "Italy"                   "Pasta"                    "Tomatoes", "salad"        "1. cook pasta 2. Add sauce"
 
 ## Resources
 
