@@ -22,9 +22,9 @@ router.get("/", async (req, res) => {
 router.get("/", async (req, res) => {
   const { search } = req.query;
   if (search) {
-    const recipesByCountry = await getRecipesByCountry("country", search);
+    const recipesByCountry = await getRecipesByCountry(search);
     res.json({
-      message: `Here are the recipes of ${country}`,
+      message: `Here are the recipes of ${search}`,
       payload: recipesByCountry.rows,
     });
   }
