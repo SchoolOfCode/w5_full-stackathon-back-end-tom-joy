@@ -14,15 +14,22 @@
 
 ### Requirements table
 
-| Method | Path           | Additional Info                                                        | Result                                 | Response                                  |
-| ------ | -------------- | ---------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------- |
-| GET    | /resource      |                                                                        | all item                               | { success: Boolean, payload: item array } |
-| GET    | /resource/<id> |                                                                        | item with a particular id if it exists | { success: Boolean, payload: item }       |
-| GET    | /resource      | ?query=searchString (query should match a column in the DB, e.g. name) | all data matching query                | { success: Boolean, payload: item array } |
-| POST   | /resource      | { body }                                                               | create a new item                      | { success: Boolean, payload: item }       |
-| PUT    | /resource/<id> | { body }                                                               | updated item                           | { success: Boolean, payload: item }       |
-| PATCH  | /resource/<id> | { body }                                                               | updated item                           | { success: Boolean, payload: item }       |
-| DELETE | /resource/<id> |                                                                        | item deleted                           | { success: Boolean, payload: item }       |
+| Method | Path                  | Additional Info | Result                                         | Response                                     |
+| ------ | --------------------- | --------------- | ---------------------------------------------- | -------------------------------------------- |
+| GET    | /recipe              |                 | all recipes                                    | { success: Boolean, payload: recipe array } |
+| GET    | /recipe/<recipe_id> |                 | recipe with a particular id if it exists      | { success: Boolean, payload: recipe }       |
+| GET    | /recipe              | ?search=italy    | all recipe with "italy" as the name            | { success: Boolean, payload: recipe array } |
+| POST   | /recipe              | { body }        | create a new recipe                           | { success: Boolean, payload: recipe }       |
+| PUT    | /recipe/<recipe_id> | { body }        | updated recipe                                | { success: Boolean, payload: recipe }       |
+| DELETE | /recipe/<recipe_id> |                 | recipe deleted                                | { success: Boolean, payload: recipe }       |
+| PATCH | /recipe/<recipe_id> |   { body }        | recipe patched                                | { success: Boolean, payload: recipe }       |
+
+
+At least 1 recipie per country already added. 
+
+| id (SERIAL PRIMARY KEY) | NAME OF COUNTRY (text) | NAME OF RECIPE (text) | INGREDIENTS (list of text items) | STEPS (text) |
+-------------------------------------------------------------------------------------------------------------------------
+        1                       "Italy"                   "Pasta"                    "Tomatoes", "salad"        "1. cook pasta 2. Add sauce"
 
 ## Resources
 
