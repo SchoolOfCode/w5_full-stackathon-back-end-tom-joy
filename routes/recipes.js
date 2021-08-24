@@ -66,6 +66,7 @@ router.put("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
   const { body } = req;
   const { id } = req.params;
+  let payload;
 
   // make an array of acceptable column names
   const acceptableColumnHeaders = ["recipe", 
@@ -74,7 +75,7 @@ router.patch("/:id", async (req, res) => {
                                    "steps"];
 
   // check that all col_names are acceptable names
-  for (const col_name in req.body) {
+  for (const col_name in body) {
     if(!acceptableColumnHeaders.includes(col_name)) {
       res.json({
       success: false,
@@ -83,16 +84,15 @@ router.patch("/:id", async (req, res) => {
       return;
   // if all col_names are accetable - then proceed (i.e., call the update function for each property given in the body)
     } else {
-      const value = req.body[col_name];
+      const value = body[col_name];
       payload = await patchRecipeById(col_name, value, id);
     }
   }
-
-
+  
   res.json({
     success: true,
     message: `recipe ${id} updated`,
-    payload: data.rows,
+    payload: payload,
   });
 });
 

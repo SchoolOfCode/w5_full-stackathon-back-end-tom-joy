@@ -46,7 +46,7 @@ async function updateRecipeById(recipeObject, id) {
 //UPDATE an existing recipe only on one column name/value (this needs to be supplied seperately with the id);
 async function patchRecipeById(col_name, value, id) {
   const data = await query(
-    `UPDATE recipe SET ${col_name} = $1 WHERE id = $2 RETURNING *;`,
+    `UPDATE recipes SET ${col_name} = $1 WHERE id = $2 RETURNING *;`,
     [value, id]
   );
   return data.rows;
