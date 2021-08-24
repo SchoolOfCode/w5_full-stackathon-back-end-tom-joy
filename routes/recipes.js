@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   const recipes = await getAllRecipes();
   res.json({
     message: "Here are the recipes",
-    payload: recipes,
+    payload: recipes.rows,
   });
 });
 
@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
     const recipesByCountry = await getRecipesByCountry("country", search);
     res.json({
       message: `Here are the recipes of ${country}`,
-      payload: recipesByCountry,
+      payload: recipesByCountry.rows,
     });
   }
 });
