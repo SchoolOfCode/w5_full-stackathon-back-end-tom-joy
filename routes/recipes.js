@@ -41,6 +41,7 @@ router.delete("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const { body } = req;
   const data = await postNewRecipe(body);
+  console.log(data);
   res.json({
     success: true,
     message: `new recipe added!`,
