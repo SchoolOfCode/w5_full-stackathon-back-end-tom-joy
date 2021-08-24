@@ -62,7 +62,7 @@ router.put("/:id", async (req, res) => {
   });
 });
 
-// Patch recipe by id 
+// Patch recipe by id ✅ tested
 router.patch("/:id", async (req, res) => {
   const { body } = req;
   const { id } = req.params;
