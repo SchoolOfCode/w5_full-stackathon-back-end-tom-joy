@@ -9,7 +9,7 @@ const {
   patchRecipeById,
 } = require("../models/recipes");
 
-// get all data from recipes & get data by country name
+// get all data from recipes & get data by country name ✅ tested
 router.get("/", async (req, res) => {
   const { country } = req.query;
   if (country) {
@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-// delete recipe by id
+// delete recipe by id ✅ tested
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const data = await deleteRecipeById(id);
@@ -37,14 +37,27 @@ router.delete("/:id", async (req, res) => {
   });
 });
 
-// Post new recipe
+// Post new recipe ✅ tested
 router.post("/", async (req, res) => {
   const { body } = req;
   const data = await postNewRecipe(body);
   res.json({
     success: true,
     message: `new recipe added!`,
-    payload: "test",
+    payload: data, // not returning data?
+  });
+});
+
+// Update recipe by id ✅ tested
+router.put("/:id", async (req, res) => {
+  const { body } = req;
+  const { id } = req.params;
+  const data = await updateRecipeById(body, id);
+
+  res.json({
+    success: true,
+    message: `recipe ${id} updated`,
+    payload: data.rows,
   });
 });
 
